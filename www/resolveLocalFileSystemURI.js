@@ -85,5 +85,5 @@
         exec(success, fail, "File", "resolveLocalFileSystemURI", [uri]);
     };
 
-    modules.export = resolveLocalFileSystemURL;
+    module.exports = resolveLocalFileSystemURL;
 })();
