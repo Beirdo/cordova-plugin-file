@@ -44,7 +44,7 @@
      * @param successCallback  invoked with Entry object corresponding to URI
      * @param errorCallback    invoked if error occurs retrieving file system entry
      */
-    module.exports.resolveLocalFileSystemURL = module.exports.resolveLocalFileSystemURL || function(uri, successCallback, errorCallback) {
+    var resolveLocalFileSystemURL = function(uri, successCallback, errorCallback) {
         argscheck.checkArgs('sFF', 'resolveLocalFileSystemURI', arguments);
         // error callback
         var fail = function(error) {
@@ -85,8 +85,5 @@
         exec(success, fail, "File", "resolveLocalFileSystemURI", [uri]);
     };
 
-    module.exports.resolveLocalFileSystemURI = function() {
-        console.log("resolveLocalFileSystemURI is deprecated. Please call resolveLocalFileSystemURL instead.");
-        module.exports.resolveLocalFileSystemURL.apply(this, arguments);
-    };
+    modules.export = resolveLocalFileSystemURL;
 })();
